@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Willkomen auf meiner Seite</title>
+    <link
+      rel="icon"
+      href="C:\Users\maels\OneDrive\Desktop\Meine erste Internetseite\Pepe.jpg"
+      image="Pepe"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      .RickRoll {
+        height: 50vh;
+        width: 70%;
+        object-fit: cover;
+      }
+
+      .Kopfzeile {
+        position: fixed;
+        background-color: black;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: center;
+        top: 0; /* Positioniert es an den oberen Rand des Bildschirms */
+        left: 0; /* Setzt es am linken Rand */
+        width: 100%; /* Damit die Kopfzeile die gesamte Breite der Seite einnimmt */
+        z-index: 1000; /* Stellt sicher, dass die Kopfzeile immer oben ist */
+      }
+
+      .MLogo {
+        width: 10vh;
+        right: 0px;
+        margin: 0;
+      }
+
+      /* menu-link */
+      .menu-link {
+        display: inline-block;
+        padding: 10px 20px;
+        transition: transform 3s ease-out, color 3s ease-out; /* Langsame Vergrößerung und Farbänderung */
+        color: #551a8b; /* Anfangsfarbe des Textes */
+      }
+
+      .menu-link:hover {
+        transform: scale(2); /* Vergrößert das Element beim Hover */
+        color: #39ff14; /* Ändert die Textfarbe auf grün beim Hover */
+      }
+
+      .menu-link:not(:hover) {
+        transition: none; /* Keine Transition für die Rückkehr zur Originalgröße */
+      }
+      /* menue-link */
+
+      body {
+        background: radial-gradient(circle, #39ff14, #ff6a00);
+        font-family: "Press Start 2P", cursive;
+        margin: 0px 0px 0px 0px;
+        display: flex;
+      }
+
+      .Content {
+        margin: 0px 8px 8px 8px;
+      }
+
+      .modal {
+        display: none; /* Das Fenster wird standardmäßig ausgeblendet */
+        position: fixed; /* Das Fenster bleibt immer an der gleichen Stelle, auch wenn man scrollt */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0.5
+        ); /* Halbtransparenter Hintergrund */
+      }
+
+      .modal-content {
+        background-color: white;
+        margin: 20% auto; /* Das Fenster wird vertikal und horizontal mittig platziert */
+        padding: 20px;
+        width: 50%; /* Breite des Fensters */
+      }
+
+      .modal-close {
+        position: relative;
+        /* margin-top: -20%; */
+        top: -16px;
+        left: 100%;
+        font-size: 15px;
+        cursor: pointer;
+        /* background-color: aqua; */
+      }
+
+
+      .linke_sidebar {
+        border: 5px ;
+        width: 20%;
+        margin: 10px;
+        margin-top: 70px;
+        border: 5px dashed magenta;
+        padding: 5px;
+        overflow: hidden;
+      }
+
+      .terminal {
+        font-family: 'Courier New', Courier, monospace;
+        background-color: #111;
+        color: lime;
+        width: 100%;
+        height: 300px;
+        padding: 10px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .terminal_body { /* Stil für den Text im Terminal */
+        white-space: nowrap; /* Damit der Text in einer Zeile bleibt */
+        overflow: hidden;
+        width: 100%;
+      }
+
+      .terminal .cursor { /* Blinkender Cursor */
+        position: absolute;
+        bottom: 10px;
+        right: 0;
+        width: 10px;
+        height: 20px;
+        background-color: lime;
+        animation: blink 1s step-end infinite; /* Die Animation */
+      }
+
+      
+      
+      .projekte-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+      }
+
+      .projekt {
+        width: 250px;
+        background-color: #111;
+        color: lime;
+        border: 2px solid magenta;
+        padding: 15px;
+        font-family: "Press Start 2P", monospace;
+        text-align: center;
+        transition: transform 0.2s ease;
+      }
+
+      .projekt:hover {
+        transform: scale(1.05);
+        border-color: cyan;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="Kopfzeile">
+      <img src="MLogoPlatzhalter.jpg" class="MLogo" />
+      <div>
+        <a href="#alle Projekte" id="alle Projekte Link">Projekte</a>
+
+        <a href=".\the whole Internet.mp4" download="THE WHOLE INTERNET"
+          >Tool: downloade das gesmte Internet</a
+        >
+
+        <button onclick="toggle_visibility('modalWindow');">
+          Mein YouTube Kanal
+        </button>
+      </div>
+    </header>
+
+    <div id="modalWindow" class="modal">
+      <div class="modal-content">
+        <span class="modal-close" onclick="toggle_visibility('modalWindow');"
+          >&times;</span
+        >
+        <h2>Dies ist ein modales Fenster!</h2>
+      </div>
+    </div>
+
+    <div class="linke_sidebar"> linke sidebar
+      <div class="terminal">terminal
+        <div class="terminal_body" id="terminalText">test</div>
+        <div class="cursor"></div>
+      </div>
+    </div>
+
+    <div class="Content">
+      <h1>Willkommen!</h1>
+      <br />
+      <h2>Das ist meine erste selbst erstellte Internetseite!</h2>
+      <h3>
+        Die Seite werde ich nutzen um einfach einiges auszuprobieren und zu
+        lernen.
+      </h3>
+      <br />
+
+      Die Seite ist mit
+      <abbr
+        title="Hypertext Markup Language"
+        style="background-color: powderblue; text-decoration: none"
+        >HTML</abbr
+      >
+      geschrieben, so wie fast alle Webseiten. Du kannst das auch ganz einfach
+      lernen, die Grundlagen kannst du
+      <a
+        href="https://www.youtube.com/watch?v=Q3MIitoSQkE&ab_channel=Programmierenlernen"
+        title="einfaches YouTube Tutorial zum direkt anfangen"
+      >
+        in 20 Minuten bei YouTube lernen</a
+      >
+      ! ;)<br />
+      <br />
+
+      <h3>
+        <details>
+          <summary>Liebe Informatik Lehrerin</summary>
+          <p>
+            Bitte geben sie mir bessere Endjahresnoten als die letzten
+            Halbjahrsnoten. <br />
+            Sehen Sie, ich habe sogar eine eigene Webseite gebaut! <br />
+            Liebe Grüße,
+            <abbr
+              title="Das nicht jeder weiß wer ich bin"
+              style="background-color: powderblue; text-decoration: none"
+              >M.</abbr
+            >
+          </p>
+        </details>
+      </h3>
+      <br />
+
+      Hintergrundfarbe ändern ->
+      <input type="color" id="colorPicker" value="#ff6a00" />
+
+      Cool, oder?
+
+      <script type="text/javascript">
+        // Setzt den Hintergrund und die Anfangsfarbe des Farbreglers auf Weiß
+        document
+          .getElementById("colorPicker")
+          .addEventListener("input", function () {
+            // Hintergrund mit radial-gradient ändern, ohne die erste Farbe zu verlieren
+            document.body.style.background = `radial-gradient(circle, #39FF14, ${this.value})`;
+          });
+      </script>
+
+      <br />
+      <br />
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+      
+      
+      
+      <details open id="alle Projekte">
+        <summary>Alle Projekte</summary>
+
+        <div class="projekte-grid">
+          <div class="projekt">
+            <h3>Tool 1</h3>
+            <p>Kurzbeschreibung</p>
+            <a href="tool1.html">Starten</a>
+          </div>
+
+          <div class="projekt">
+            <h3>Projekt 2</h3>
+            <p>Etwas Text dazu</p>
+            <a href="projekt2.html">Mehr Infos</a>
+          </div>
+        </div>
+      </details>
+
+      <script>
+        // Fügt ein EventListener zum Link hinzu, um das Scroll-Verhalten zu ändern
+        document
+          .getElementById("alle Projekte Link")
+          .addEventListener("click", function (event) {
+            event.preventDefault(); // Verhindert das Standardverhalten des Links
+
+            // Zielt auf das Element ab, auf das gescrollt werden soll
+            var zielElement = document.getElementById("alle Projekte");
+
+            // Scrollt das Ziel-Element ganz oben auf den sichtbaren Bereich
+            zielElement.scrollIntoView({
+              behavior: "smooth", // Sanftes Scrollen
+              block: "start", // Scrollt zum oberen Rand des Ziels
+            });
+          });
+      </script>
+
+
+
+
+
+  <script type="text/javascript">
+    function toggle_visibility(id) {
+      var e = document.getElementById(id);
+      if (e.style.display == "block") e.style.display = "none";
+      else e.style.display = "block";
+    }
+  </script>
+</html>
